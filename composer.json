@@ -1,0 +1,27 @@
+{
+    "name": "nexa-merchant/webhooks",
+    "license": "MIT",
+    "description" : "Apps",
+    "keywords": ["laravel", "webhooks"],
+    "authors": [
+        {
+            "name": "Steven",
+            "email": "nice.lizhi@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "NexaMerchant\\Webhooks\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "NexaMerchant\\Webhooks\\Providers\\WebhooksServiceProvider"
+            ],
+            "aliases": {}
+        }
+    },
+    "minimum-stability": "dev"
+}
