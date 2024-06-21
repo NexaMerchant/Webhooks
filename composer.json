@@ -1,7 +1,7 @@
 {
     "name": "nexa-merchant/webhooks",
     "license": "MIT",
-    "description" : "Apps",
+    "description" : "Webhooks Apps",
     "keywords": ["laravel", "webhooks"],
     "authors": [
         {
