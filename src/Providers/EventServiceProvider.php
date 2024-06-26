@@ -51,5 +51,15 @@ class EventServiceProvider extends ServiceProvider
         'sales.refund.save.after' => [
             'NexaMerchant\Webhooks\Listeners\Refund@afterCreated',
         ],
+
+        'catalog.product.create.after'  => [
+            'NexaMerchant\Webhooks\Listeners\Product@afterCreate',
+        ],
+        'catalog.product.update.after'  => [
+            'NexaMerchant\Webhooks\Listeners\Product@afterUpdate',
+        ],
+        'catalog.product.delete.before' => [
+            'NexaMerchant\Webhooks\Listeners\Product@beforeDelete',
+        ],
     ];
 }
