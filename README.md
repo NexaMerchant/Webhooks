@@ -1,5 +1,7 @@
 # NexaMerchant/Webhooks
 
+> NexaMerchant Webhook is build on Laravel, when you enable it, and you can use it call other platform.
+
 # How to Install
 
 
@@ -13,3 +15,11 @@ Add it to config/app.php $providers
 ```
 composer require nexa-merchant/webhooks
 ```
+
+Bug Report
+------------
+[https://github.com/NexaMerchant/webhooks/issues](https://github.com/NexaMerchant/webhooks/issues)
+
+# License
+------------
+`NexaMerchant Webhooks` is licensed under [The MIT License (MIT)](LICENSE).
