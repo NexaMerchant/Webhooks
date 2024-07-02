@@ -11,6 +11,7 @@ use Webkul\Product\Jobs\UpdateCreateInventoryIndex as UpdateCreateInventoryIndex
 use Webkul\Product\Jobs\UpdateCreatePriceIndex as UpdateCreatePriceIndexJob;
 use Webkul\Product\Jobs\ElasticSearch\UpdateCreateIndex as UpdateCreateElasticSearchIndexJob;
 use Webkul\Product\Jobs\ElasticSearch\DeleteIndex as DeleteElasticSearchIndexJob;
+use NexaMerchant\Webhooks\Jobs\Products\UpdateProductIndex as UpdateProductIndexJob;
 
 class Product extends Base
 {
