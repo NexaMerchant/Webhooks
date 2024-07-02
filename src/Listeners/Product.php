@@ -44,7 +44,7 @@ class Product extends Base
     {
         //$this->flatIndexer->refresh($product);
 
-        CreateProductJobs::dispatch($product->id);
+        CreateProductJobs::dispatch($product->id, $product);
     }
 
     /**
