@@ -12,6 +12,7 @@ use Webkul\Product\Jobs\UpdateCreatePriceIndex as UpdateCreatePriceIndexJob;
 use Webkul\Product\Jobs\ElasticSearch\UpdateCreateIndex as UpdateCreateElasticSearchIndexJob;
 use Webkul\Product\Jobs\ElasticSearch\DeleteIndex as DeleteElasticSearchIndexJob;
 use NexaMerchant\Webhooks\Jobs\Products\UpdateProductIndex as UpdateProductIndexJob;
+use NexaMerchant\Webhooks\Jobs\Products\CreateProduct as CreateProductJobs;
 
 class Product extends Base
 {
@@ -41,7 +42,9 @@ class Product extends Base
      */
     public function afterCreate($product)
     {
-        $this->flatIndexer->refresh($product);
+        //$this->flatIndexer->refresh($product);
+
+        CreateProductJobs::dispatch($product->id);
     }
 
     /**
