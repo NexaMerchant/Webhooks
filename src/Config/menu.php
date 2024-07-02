@@ -4,9 +4,9 @@ return [
      * Webhooks Dashboard.
      */
     [
-        'key'        => 'Webhooks-demo',
-        'name'       => 'Webhooks::app.Webhooks.demo',
-        'route'      => 'Webhooks.admin.example.demo',
+        'key'        => 'webhooks',
+        'name'       => 'webhooks::app.webhooks.demo',
+        'route'      => 'webhooks.admin.example.demo',
         'sort'       => 1,
         'icon'       => 'icon-dashboard',
     ]
