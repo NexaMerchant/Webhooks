@@ -5,6 +5,9 @@ return [
             'demo' => 'Webhooks Admin Demo',
             'settings' => 'Webhooks Settings',
         ],
+        'Settings' => [
+            'title' => 'Webhooks Admin Settings',
+        ],
     ],
     'Shop' => [
         'Webhooks' => [

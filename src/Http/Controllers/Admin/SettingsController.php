@@ -10,6 +10,6 @@ class SettingsController extends Controller
         $data = [];
         $data['code'] = 200;
         $data['message'] = "Demo";
-        return view('Webhooks::Admin.demo', compact("data"));
+        return view('Webhooks::Admin.Settings.index', compact("data"));
     }
 }
