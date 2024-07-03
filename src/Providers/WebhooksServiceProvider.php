@@ -75,6 +75,10 @@ class WebhooksServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(
             dirname(__DIR__) . '/Config/Webhooks.php', 'Webhooks'
         );
+
+        $this->mergeConfigFrom(
+            dirname(__DIR__) . '/Config/system.php', 'core'
+        );
         
     }
 
