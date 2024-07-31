@@ -52,21 +52,21 @@ class CreateProduct implements ShouldQueue
             ]
         ];
 
-        try {
-            $response = $client->post($this->url.'/admin/api/2023-10/orders.json', [
-                'http_errors' => true,
-                'headers' => [
-                    'Content-Type' => 'application/json',
-                    'Accept' => 'application/json',
-                    'Access-Token' => "shpat_1b1",
-                ],
-                'body' => json_encode($data)
-            ]);
-        }catch(ClientException $e) {
-            var_dump($e->getResponse()->getBody()->getContents());
+        // try {
+        //     $response = $client->post($this->url.'/admin/api/2023-10/orders.json', [
+        //         'http_errors' => true,
+        //         'headers' => [
+        //             'Content-Type' => 'application/json',
+        //             'Accept' => 'application/json',
+        //             'Access-Token' => "shpat_1b1",
+        //         ],
+        //         'body' => json_encode($data)
+        //     ]);
+        // }catch(ClientException $e) {
+        //     var_dump($e->getResponse()->getBody()->getContents());
 
-            Log::error($e->getResponse()->getBody()->getContents());
-        }
+        //     Log::error($e->getResponse()->getBody()->getContents());
+        // }
 
         
     }
