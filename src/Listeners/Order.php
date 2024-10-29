@@ -67,4 +67,30 @@ class Order extends Base
             report($e);
         }
     }
+
+    /**
+     * Order Updated
+     *
+     * @param  mixed  $object
+     * @param  \Illuminate\Mail\Mailable  $mailable
+     * @return void
+     */
+    public function afterUpdated($order) {
+        try {
+            if (! core()->getConfigData('emails.general.notifications.emails.general.notifications.order_updated')) {
+                return;
+            }
+
+            //$this->prepareMail($order, new UpdatedNotification($order));
+
+            // Use Api to send order updated notification
+            
+            
+
+
+        } catch (\Exception $e) {
+            report($e);
+        }
+    }
+
 }
