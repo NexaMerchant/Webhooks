@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use NexaMerchant\Webhooks\Http\Controllers\Api\WebhookController;
 
-Route::group(['middleware' => ['api'], 'prefix' => 'api'], function () {
+Route::group(['middleware' => ['api', 'assign_request_id'], 'prefix' => 'api'], function () {
     // v1 webhooks
      Route::prefix('v1')->group(function () {
 
