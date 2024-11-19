@@ -23,6 +23,8 @@ Route::group(['middleware' => ['api', 'assign_request_id'], 'prefix' => 'api'], 
 
             Route::post('test/{id}', 'test')->name('webhooks.api.webhook.test');
 
+            Route::get('types', 'types')->name('webhooks.api.webhook.types');
+
         });
 
      });
