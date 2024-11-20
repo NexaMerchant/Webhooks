@@ -7,16 +7,80 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 class WebhookController extends Controller
 {
     // create a new webhook
+    public function create(Request $request) {
+        $request->validate([
+            'webhook' => 'required',
+            'webhook.url' => 'required',
+            'webhook.topic' => 'required',
+            'webhook.format' => 'required',
+            'webhook.fields' => 'required',
+            'webhook.fields.*' => 'required',
+        ]);
+
+        $webhook = Webhook::create($request->webhook);
+
+        return response()->json([
+            'data' => $webhook
+        ]);
+    }
 
     // update a webhook
+    public function update(Request $request, $id) {
+        $request->validate([
+            'webhook' => 'required',
+            'webhook.url' => 'required',
+            'webhook.topic' => 'required',
+            'webhook.format' => 'required',
+            'webhook.fields' => 'required',
+            'webhook.fields.*' => 'required',
+        ]);
 
+        $webhook = Webhook::findOrFail($id);
+        $webhook->update($request->webhook);
+
+        return response()->json([
+            'data' => $webhook
+        ]);
+    }
     // delete a webhook
+    public function delete($id) {
+        $webhook = Webhook::findOrFail($id);
+        $webhook->delete();
 
+        return response()->json([
+            'data' => $webhook
+        ]);
+    }
     // list all webhooks
+    public function list(Request $request) {
+        $webhooks = Webhook::where("user_id", Auth()->user()->id)->get();
 
+        return response()->json([
+            'data' => $webhooks
+        ]);
+    }
     // get a webhook
+    public function get($id) {
+        $webhook = Webhook::findOrFail($id);
 
+        return response()->json([
+            'data' => $webhook
+        ]);
+    }
     // test a webhook
+    public function test(Request $request, $id) {
+        $webhook = Webhook::findOrFail($id);
+
+        $response = Http::post($webhook->url, [
+            'data' => [
+                'message' => 'This is a test message'
+            ]
+        ]);
+
+        return response()->json([
+            'data' => $response->json()
+        ]);
+    }
 
     // list all webhook types
     // https://shopify.dev/docs/api/webhooks?reference=toml
