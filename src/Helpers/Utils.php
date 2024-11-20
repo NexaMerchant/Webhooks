@@ -66,6 +66,38 @@ final class Utils {
     const CALLBACK_TYPE_SMS = 'sms';
     CONST CALLBACK_TYPE_SLACK = 'slack';
 
+    // Webhook fields
+    const FIELDS_ORDER_ID = 'order_id';
+    const FIELDS_ORDER_STATUS = 'order_status';
+    const FIELDS_ORDER_TOTAL = 'order_total';
+    const FIELDS_ORDER_CURRENCY = 'order_currency';
+    const FIELDS_ORDER_DATE = 'order_date';
+    const FIELDS_ORDER_ITEMS = 'order_items';
+    const FIELDS_ORDER_CUSTOMER = 'order_customer';
+    const FIELDS_ORDER_SHIPPING_ADDRESS = 'order_shipping_address';
+    const FIELDS_ORDER_BILLING_ADDRESS = 'order_billing_address';
+    const FIELDS_ORDER_PAYMENT = 'order_payment';
+    const FIELDS_ORDER_SHIPPING = 'order_shipping';
+    const FIELDS_ORDER_INVOICES = 'order_invoices';
+    const FIELDS_ORDER_SHIPMENTS = 'order_shipments';
+    const FIELDS_ORDER_REFUNDS = 'order_refunds';
+    const FIELDS_ORDER_COMMENTS = 'order_comments';
+    const FIELDS_PRODUCT_ID = 'product_id';
+    const FIELDS_PRODUCT_NAME = 'product_name';
+    const FIELDS_PRODUCT_SKU = 'product_sku';
+    const FIELDS_PRODUCT_PRICE = 'product_price';
+    const FIELDS_PRODUCT_QTY = 'product_qty';
+    const FIELDS_PRODUCT_DESCRIPTION = 'product_description';
+    const FIELDS_PRODUCT_IMAGES = 'product_images';
+    const FIELDS_PRODUCT_CATEGORIES = 'product_categories';
+    const FIELDS_PRODUCT_BRAND = 'product_brand';
+    const FIELDS_PRODUCT_ATTRIBUTES = 'product_attributes';
+    const FIELDS_PRODUCT_REVIEWS = 'product_reviews';
+    const FIELDS_CUSTOMER_ID = 'customer_id';
+    const FIELDS_CUSTOMER_NAME = 'customer_name';
+    const FIELDS_CUSTOMER_EMAIL = 'customer_email';
+    const FIELDS_CUSTOMER_PHONE = 'customer_phone';
+    const FIELDS_CUSTOMER_GROUP = 'customer_group';
 
 
     public static function getWebhookTopics() {
@@ -126,37 +158,6 @@ final class Utils {
     }
 
     public static function getWebhookFields() {
-        return [
-            'order_id',
-            'order_status',
-            'order_total',
-            'order_currency',
-            'order_date',
-            'order_items',
-            'order_customer',
-            'order_shipping_address',
-            'order_billing_address',
-            'order_payment',
-            'order_shipping',
-            'order_invoices',
-            'order_shipments',
-            'order_refunds',
-            'order_comments',
-            'product_id',
-            'product_name',
-            'product_sku',
-            'product_price',
-            'product_qty',
-            'product_description',
-            'product_images',
-            'product_categories',
-            'product_brand',
-            'product_attributes',
-            'product_reviews',
-            'customer_id',
-            'customer_name',
-            'customer_email',
-            'customer_phone',
-        ];
+        
     }
 }
