@@ -8,9 +8,7 @@ on:
 
 jobs:
   laravel-tests:
-
     runs-on: ubuntu-latest
-
     strategy:
       fail-fast: false
       matrix:
@@ -36,7 +34,7 @@ jobs:
           coverage: none
 
       # Configure NPM
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
 
