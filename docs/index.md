@@ -8,7 +8,7 @@ You can use http, https, or any other protocol to call other platform.
 
 ## Webhook Api Documentation
 
-- [Webhook Api Documentation](https://nexamerchant.com/docs/webhooks)
+- [Webhook Api Documentation](https://nexamerchant.github.io/Webhooks/api/)
 
 ## Installation
 
