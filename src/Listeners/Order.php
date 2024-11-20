@@ -26,9 +26,10 @@ class Order extends Base
 
             // Use Api to send new order notification
             // select the webhook with topic 'order.created' and post the order data to the webhook url
-            $webhooks = Webhook::where('topic', 'order.created')->get();
+            $webhooks = Webhook::where('topic', 'order.created')->select(['url','format','type'])->get();
             foreach ($webhooks as $webhook) {
-                $response = Http::post($webhook->url, $order->toArray());
+                // add the the webhook to the queue
+                $this->dispatch(new SendWebhook($webhook, $order))->onQueue('webhooks_'.$webhook->type);
             }
 
         } catch (\Exception $e) {

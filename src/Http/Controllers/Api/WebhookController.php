@@ -3,6 +3,7 @@
 namespace NexaMerchant\Webhooks\Http\Controllers\Api;
 
 use Illuminate\Foundation\Validation\ValidatesRequests;
+use NexaMerchant\Webhooks\Utils;
 
 class WebhookController extends Controller
 {
@@ -12,10 +13,37 @@ class WebhookController extends Controller
             'webhook' => 'required',
             'webhook.url' => 'required',
             'webhook.topic' => 'required',
+            'webhook.type' => 'required', // add topic type
             'webhook.format' => 'required',
             'webhook.fields' => 'required',
             'webhook.fields.*' => 'required',
         ]);
+
+        //check if the webhook topic is valid
+        $validTopics = Utils::getWebhookTopics();
+        if (!in_array($request->webhook['topic'], $validTopics)) {
+            return response()->json([
+                'error' => 'Invalid webhook topic'
+            ], 400);
+        }
+
+        //check if the webhook format is valid
+        $validFormats = Utils::getWebhookFormats();
+        if (!in_array($request->webhook['format'], $validFormats)) {
+            return response()->json([
+                'error' => 'Invalid webhook format'
+            ], 400);
+        }
+
+        //check if the webhook fields are valid
+        $validFields = Utils::getWebhookFields();
+        foreach ($request->webhook['fields'] as $field) {
+            if (!in_array($field, $validFields)) {
+                return response()->json([
+                    'error' => 'Invalid webhook field'
+                ], 400);
+            }
+        }
 
         $webhook = Webhook::create($request->webhook);
 
@@ -30,6 +58,7 @@ class WebhookController extends Controller
             'webhook' => 'required',
             'webhook.url' => 'required',
             'webhook.topic' => 'required',
+            'webhook.type' => 'required', // add topic type
             'webhook.format' => 'required',
             'webhook.fields' => 'required',
             'webhook.fields.*' => 'required',

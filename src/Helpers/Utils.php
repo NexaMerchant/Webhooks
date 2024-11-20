@@ -56,6 +56,17 @@ final class Utils {
     const PRODUCT_ATTRIBUTE_UPDATED = 'product.attribute.updated';
     const PRODUCT_ATTRIBUTE_DELETED = 'product.attribute.deleted';
 
+    // Webhook topics formats
+    const FORMAT_JSON = 'json';
+    const FORMAT_XML = 'xml';
+
+    // Webhook Callback Types
+    const CALLBACK_TYPE_HTTP = 'http';
+    const CALLBACK_TYPE_EMAIL = 'email';
+    const CALLBACK_TYPE_SMS = 'sms';
+    CONST CALLBACK_TYPE_SLACK = 'slack';
+
+
 
     public static function getWebhookTopics() {
         return [
@@ -95,6 +106,57 @@ final class Utils {
             self::PRODUCT_ATTRIBUTE_CREATED,
             self::PRODUCT_ATTRIBUTE_UPDATED,
             self::PRODUCT_ATTRIBUTE_DELETED,
+        ];
+    }
+
+    public static function getWebhookFormats() {
+        return [
+            self::FORMAT_JSON,
+            self::FORMAT_XML,
+        ];
+    }
+
+    public static function getWebhookCallbackTypes() {
+        return [
+            self::CALLBACK_TYPE_HTTP,
+            // self::CALLBACK_TYPE_EMAIL,
+            // self::CALLBACK_TYPE_SMS,
+            // self::CALLBACK_TYPE_SLACK,
+        ];
+    }
+
+    public static function getWebhookFields() {
+        return [
+            'order_id',
+            'order_status',
+            'order_total',
+            'order_currency',
+            'order_date',
+            'order_items',
+            'order_customer',
+            'order_shipping_address',
+            'order_billing_address',
+            'order_payment',
+            'order_shipping',
+            'order_invoices',
+            'order_shipments',
+            'order_refunds',
+            'order_comments',
+            'product_id',
+            'product_name',
+            'product_sku',
+            'product_price',
+            'product_qty',
+            'product_description',
+            'product_images',
+            'product_categories',
+            'product_brand',
+            'product_attributes',
+            'product_reviews',
+            'customer_id',
+            'customer_name',
+            'customer_email',
+            'customer_phone',
         ];
     }
 }
