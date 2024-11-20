@@ -8,15 +8,8 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/Nexa-Merchant/webhooks.svg?style=flat-square)](https://packagist.org/packages/Nexa-Merchant/webhooks)
 [![Software License](https://img.shields.io/packagist/l/Nexa-Merchant/webhooks.svg?style=flat-square)](LICENSE.md)
 
+
 # How to Install
-
-
-```
-NexaMerchant\Webhooks\Providers\WebhooksServiceProvider::class,
-```
-Add it to config/app.php $providers
-
-# How to Publish
 
 ```
 composer require nexa-merchant/webhooks
