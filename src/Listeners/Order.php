@@ -5,6 +5,7 @@ namespace NexaMerchant\Webhooks\Listeners;
 use Webkul\Shop\Mail\Order\CreatedNotification;
 use Webkul\Shop\Mail\Order\CanceledNotification;
 use Webkul\Shop\Mail\Order\CommentedNotification;
+use GuzzleHttp\Client as Http;
 
 class Order extends Base
 {
@@ -22,6 +23,14 @@ class Order extends Base
             }
 
             $this->prepareMail($order, new CreatedNotification($order));
+
+            // Use Api to send new order notification
+            // select the webhook with topic 'order.created' and post the order data to the webhook url
+            $webhooks = Webhook::where('topic', 'order.created')->get();
+            foreach ($webhooks as $webhook) {
+                $response = Http::post($webhook->url, $order->toArray());
+            }
+
         } catch (\Exception $e) {
             report($e);
         }
