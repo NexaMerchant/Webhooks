@@ -158,6 +158,38 @@ final class Utils {
     }
 
     public static function getWebhookFields() {
-        
+        return [
+            self::FIELDS_ORDER_ID,
+            self::FIELDS_ORDER_STATUS,
+            self::FIELDS_ORDER_TOTAL,
+            self::FIELDS_ORDER_CURRENCY,
+            self::FIELDS_ORDER_DATE,
+            self::FIELDS_ORDER_ITEMS,
+            self::FIELDS_ORDER_CUSTOMER,
+            self::FIELDS_ORDER_SHIPPING_ADDRESS,
+            self::FIELDS_ORDER_BILLING_ADDRESS,
+            self::FIELDS_ORDER_PAYMENT,
+            self::FIELDS_ORDER_SHIPPING,
+            self::FIELDS_ORDER_INVOICES,
+            self::FIELDS_ORDER_SHIPMENTS,
+            self::FIELDS_ORDER_REFUNDS,
+            self::FIELDS_ORDER_COMMENTS,
+            self::FIELDS_PRODUCT_ID,
+            self::FIELDS_PRODUCT_NAME,
+            self::FIELDS_PRODUCT_SKU,
+            self::FIELDS_PRODUCT_PRICE,
+            self::FIELDS_PRODUCT_QTY,
+            self::FIELDS_PRODUCT_DESCRIPTION,
+            self::FIELDS_PRODUCT_IMAGES,
+            self::FIELDS_PRODUCT_CATEGORIES,
+            self::FIELDS_PRODUCT_BRAND,
+            self::FIELDS_PRODUCT_ATTRIBUTES,
+            self::FIELDS_PRODUCT_REVIEWS,
+            self::FIELDS_CUSTOMER_ID,
+            self::FIELDS_CUSTOMER_NAME,
+            self::FIELDS_CUSTOMER_EMAIL,
+            self::FIELDS_CUSTOMER_PHONE,
+            self::FIELDS_CUSTOMER_GROUP,
+        ];
     }
 }
