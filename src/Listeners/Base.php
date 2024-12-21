@@ -3,7 +3,9 @@
 namespace NexaMerchant\Webhooks\Listeners;
 
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use Webkul\Sales\Contracts\OrderComment;
+
 
 class Base
 {
@@ -40,9 +42,33 @@ class Base
         try {
             Mail::queue($notification);
         } catch(\Exception $e) {
-            \Log::error('Error in Sending Email' . $e->getMessage());
+            Log::error('Error in Sending Email' . $e->getMessage());
         }
 
         app()->setLocale($previousLocale);
     }
+
+    /**
+     * Get the locale of the customer if somehow item name changes then the english locale will pe provided.
+     *
+     * @param object \Webkul\Sales\Contracts\Order|\Webkul\Sales\Contracts\Invoice|\Webkul\Sales\Contracts\Refund|\Webkul\Sales\Contracts\Shipment|\Webkul\Sales\Contracts\OrderComment
+     * @return string
+     */
+    protected function preparePostData($entity, $notification)
+    {
+        $customerLocale = $this->getLocale($entity);
+
+        $previousLocale = core()->getCurrentLocale()->code;
+
+        app()->setLocale($customerLocale);
+
+        try {
+            $notification->send();
+        } catch(\Exception $e) {
+            Log::error('Error in Sending Email' . $e->getMessage());
+        }
+
+        app()->setLocale($previousLocale);
+    }
+
 }
